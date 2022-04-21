@@ -1,5 +1,9 @@
+import { Router } from "./routes/Routes"
+
 function App() {
-  return <h1>Hello world</h1>
+  return(
+      <Router />
+  )
 }
 
 export default App
