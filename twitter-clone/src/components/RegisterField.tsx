@@ -15,7 +15,7 @@ export function RegisterField() {
         email,
         password,
       });
-      token.message ? setError(token.message) : token;
+      token.message ? setError(token.message) : token && setError('Cadastro feito com sucesso!');
     } catch (e: any) {
       console.log(e.message);
     }

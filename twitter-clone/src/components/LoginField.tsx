@@ -13,7 +13,7 @@ export function LoginField() {
         email,
         password,
       });
-      token.length > 20 ? token : setError(token);
+      token.message ? setError(token.message) : console.log(token);
       return token;
     } catch (e: any) {
       console.log(e.message);
