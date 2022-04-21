@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/loginUser';
 
 export function LoginField() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -13,7 +16,7 @@ export function LoginField() {
         email,
         password,
       });
-      token.message ? setError(token.message) : console.log(token);
+      token.message ? setError(token.message) : token && navigate('/home');
       return token;
     } catch (e: any) {
       console.log(e.message);
