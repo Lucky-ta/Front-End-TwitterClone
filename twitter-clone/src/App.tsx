@@ -1,8 +1,11 @@
 import { Router } from './routes/Routes';
+import { MyProvider } from './contexts/MyProvider';
 
 function App() {
   return (
-    <Router />
+    <MyProvider>
+      <Router />
+    </MyProvider>
   );
 }
 

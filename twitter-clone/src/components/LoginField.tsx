@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/loginUser';
+import { useContext } from 'react';
+import { MyContext } from '../contexts/MyContext';
+
 
 export function LoginField() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const { setToken } = useContext(MyContext)
 
   const navigate = useNavigate();
 
@@ -17,7 +22,7 @@ export function LoginField() {
         password,
       });
       token.message ? setError(token.message) : token && navigate('/home');
-      return token;
+      setToken(token);
     } catch (e: any) {
       console.log(e.message);
     }
