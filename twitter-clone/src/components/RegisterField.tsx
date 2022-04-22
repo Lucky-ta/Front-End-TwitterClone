@@ -6,16 +6,25 @@ export function RegisterField() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [isRender, setIsRender] = useState(true);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsRender(false);
     try {
       const token = await registerUser({
         name,
         email,
         password,
       });
-      token.message ? setError(token.message) : token && setError('Cadastro feito com sucesso!');
+      if (token.message) {
+        setIsRender(true);
+        setError(token.message);
+      } else {
+        setError('Cadastro feito com sucesso!');
+        setIsRender(true);
+        console.log(token);
+      }
     } catch (e: any) {
       console.log(e.message);
     }
@@ -53,12 +62,15 @@ export function RegisterField() {
           placeholder="Crie uma senha para login"
         />
       </div>
-      <button
-        type="submit"
-        disabled={password.length < 6 || !name || !email}
-      >
-        Registrar
-      </button>
+      {isRender
+        ? (
+          <button
+            type="submit"
+            disabled={password.length < 6 || !name || !email}
+          >
+            Registrar
+          </button>
+        ) : 'Carregando...'}
       { error.length != 0 && <span>{ error }</span> }
     </form>
   );

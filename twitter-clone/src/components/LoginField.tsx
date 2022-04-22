@@ -1,28 +1,34 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/loginUser';
-import { useContext } from 'react';
 import { MyContext } from '../contexts/MyContext';
-
 
 export function LoginField() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isRender, setIsRender] = useState(true);
 
-  const { setToken } = useContext(MyContext)
+  const { setToken } = useContext(MyContext);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setIsRender(false);
     try {
       const token = await loginUser({
         email,
         password,
       });
-      token.message ? setError(token.message) : token && navigate('/home');
-      setToken(token);
+      if (token.message) {
+        setIsRender(true);
+        setError(token.message);
+      } else {
+        setToken(token);
+        setIsRender(true);
+        return navigate('/home');
+      }
     } catch (e: any) {
       console.log(e.message);
     }
@@ -50,12 +56,15 @@ export function LoginField() {
           placeholder="Digite uma senha de acesso"
         />
       </div>
-      <button
-        type="submit"
-        disabled={password.length < 6}
-      >
-        Login
-      </button>
+      {isRender
+        ? (
+          <button
+            type="submit"
+            disabled={password.length < 6}
+          >
+            Login
+          </button>
+        ) : 'Carregando...'}
       { error.length != 0 && <span>{ error }</span> }
     </form>
   );

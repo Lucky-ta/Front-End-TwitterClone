@@ -1,10 +1,10 @@
-import { useContext } from "react"
-import { MyContext } from "../contexts/MyContext"
+import { useContext } from 'react';
+import { MyContext } from '../contexts/MyContext';
 
 export function Home() {
-  const { token } = useContext(MyContext)
+  const { token } = useContext(MyContext);
 
-  return(
+  return (
     token ? (
       <div>
         <h1>{ token }</h1>
@@ -14,5 +14,5 @@ export function Home() {
         <h1>Impossivel acessar a pagina sem Realizar login</h1>
       </div>
     )
-  )
+  );
 }

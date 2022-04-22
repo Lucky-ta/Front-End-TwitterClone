@@ -1,9 +1,9 @@
-import { Context, createContext } from 'react'
+import { Context, createContext } from 'react';
 
 const initialValue = {
-    token: '',
-    setToken: () => {}
-}
+  token: '',
+  setToken: () => {},
+};
 
 export interface IUserContext {
     token: string,
