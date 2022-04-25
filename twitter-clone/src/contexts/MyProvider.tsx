@@ -1,16 +1,48 @@
-import { useState } from 'react';
-import { MyContext } from './MyContext';
+import { useEffect, useState } from "react";
+import { User } from "../types/User";
+import { AuthContext } from "./AuthContext";
+import userAPI from "../services/userAPI";
 
-export function MyProvider({ children }: any) {
-  const [token, setToken] = useState('');
+export function AuthProvider({ children }: any) {
+  const [user, setUser] = useState<User | null>(null);
+
+  const signin = async (email: string, password: string) => {
+    const data = await userAPI.signin({ email, password });
+
+    if (data.user && data.token) {
+      setUser(data.user);
+      setTokenInStorage(data.token);
+    } 
+    return data;
+  }
+
+  const setTokenInStorage = (token: string) => {
+    localStorage.setItem('authToken', token);
+  }
+
+  useEffect(() => {
+    const validateToken = async () => {
+      const storageData = localStorage.getItem('authToken');
+
+      if (storageData) {
+        const data = await userAPI.authToken(storageData);
+        console.log(data)
+        if (data.user) {
+          setUser(data.user);
+        }
+      }
+    }
+    validateToken();
+  }, [userAPI])
 
   const data = {
-    token, setToken,
-  };
-
+    user,
+    signin,
+  }
+  
   return (
-    <MyContext.Provider value={data}>
+    <AuthContext.Provider value={data}>
       { children }
-    </MyContext.Provider>
+    </AuthContext.Provider>
   );
 }

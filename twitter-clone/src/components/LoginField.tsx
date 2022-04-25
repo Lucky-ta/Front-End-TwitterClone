@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../services/loginUser';
-import { MyContext } from '../contexts/MyContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 export function LoginField() {
   const [email, setEmail] = useState('');
@@ -9,28 +8,20 @@ export function LoginField() {
   const [error, setError] = useState('');
   const [isRender, setIsRender] = useState(true);
 
-  const { setToken } = useContext(MyContext);
+  const { signin } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsRender(false);
-    try {
-      const token = await loginUser({
-        email,
-        password,
-      });
-      if (token.message) {
-        setIsRender(true);
-        setError(token.message);
-      } else {
-        setToken(token);
-        setIsRender(true);
-        return navigate('/home');
-      }
-    } catch (e: any) {
-      console.log(e.message);
+    
+    const result = await signin(email, password);
+    if (result.message) {
+      setError(result.message);
+      setIsRender(true);
+    } else {
+      return navigate('/home')
     }
   };
 
@@ -49,7 +40,7 @@ export function LoginField() {
       <div>
         <label htmlFor="PASSWORD">Senha: </label>
         <input
-          type="passowrd"
+          type="password"
           required
           id="PASSWORD"
           onChange={(e) => setPassword(e.target.value)}

@@ -1,18 +1,20 @@
-import { useContext } from 'react';
-import { MyContext } from '../contexts/MyContext';
+import { useContext, useEffect } from "react";
+import { LoginField } from "../components/LoginField";
+import { AuthContext } from "../contexts/AuthContext";
 
 export function Home() {
-  const { token } = useContext(MyContext);
+  const auth = useContext(AuthContext);
+  
+console.log(auth.user);
+
+
+  if (!auth.user) {
+    return ( <h1>USUARIO INVALIDO</h1> )
+  }
 
   return (
-    token ? (
-      <div>
-        <h1>{ token }</h1>
-      </div>
-    ) : (
-      <div>
-        <h1>Impossivel acessar a pagina sem Realizar login</h1>
-      </div>
-    )
-  );
+    <div>
+      <h2>bem vindo {auth.user.name}</h2>
+    </div>
+  )
 }

@@ -23,7 +23,6 @@ export function RegisterField() {
       } else {
         setError('Cadastro feito com sucesso!');
         setIsRender(true);
-        console.log(token);
       }
     } catch (e: any) {
       console.log(e.message);
@@ -55,7 +54,7 @@ export function RegisterField() {
       <div>
         <label htmlFor="PASSWORD">Senha: </label>
         <input
-          type="passowrd"
+          type="password"
           required
           id="PASSWORD"
           onChange={(e) => setPassword(e.target.value)}

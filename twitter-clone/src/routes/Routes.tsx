@@ -11,7 +11,7 @@ export function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={ <Home /> } />
       </Routes>
     </BrowserRouter>
   );
