@@ -1,5 +1,9 @@
 import { useContext, useEffect } from "react";
+import { Header } from "../components/Header";
+import { InvalidUser } from "../components/InvalidUser";
 import { LoginField } from "../components/LoginField";
+import { TextBox } from "../components/TextBox";
+import { Tweet } from "../components/Tweet";
 import { AuthContext } from "../contexts/AuthContext";
 
 export function Home() {
@@ -9,12 +13,15 @@ console.log(auth.user);
 
 
   if (!auth.user) {
-    return ( <h1>USUARIO INVALIDO</h1> )
+    return <InvalidUser />
   }
 
   return (
     <div>
-      <h2>bem vindo {auth.user.name}</h2>
+      <Header />
+      <TextBox />
+      <h2>bem vindo, {auth.user.name}!</h2>
+      <Tweet />
     </div>
   )
 }

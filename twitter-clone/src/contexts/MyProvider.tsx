@@ -26,9 +26,8 @@ export function AuthProvider({ children }: any) {
 
       if (storageData) {
         const data = await userAPI.authToken(storageData);
-        console.log(data)
-        if (data.user) {
-          setUser(data.user);
+        if (data) {
+          return setUser(data);
         }
       }
     }
