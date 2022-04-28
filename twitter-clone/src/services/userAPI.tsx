@@ -27,16 +27,17 @@ class useAPI {
         return await data.json();
   }
 
-  async tweet(tweet: string, token: string) {
-    const data = await fetch('https://twitter-lukita.herokuapp.com/tweet', {
+  async tweet(tweet: any, token: string) {
+    const data = await fetch('http://localhost:3001/tweet', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        // 'Accept': 'application/json',
         'Authorization': token,
       },
-      body: JSON.stringify(tweet),
+      body: JSON.stringify({tweet}),
     })
-    return await data.json();
+    return data.json();
   }
 }
 
