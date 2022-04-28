@@ -5,6 +5,7 @@ import userAPI from "../services/userAPI";
 
 export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<User | null>(null);
+  const [tweet, setTweet] = useState('');
 
   const signin = async (email: string, password: string) => {
     const data = await userAPI.signin({ email, password });

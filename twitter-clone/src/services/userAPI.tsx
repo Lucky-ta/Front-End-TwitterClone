@@ -26,6 +26,18 @@ class useAPI {
         });
         return await data.json();
   }
+
+  async tweet(tweet: string, token: string) {
+    const data = await fetch('https://twitter-lukita.herokuapp.com/tweet', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token,
+      },
+      body: JSON.stringify(tweet),
+    })
+    return await data.json();
+  }
 }
 
 export default new useAPI();
