@@ -15,13 +15,13 @@ export function LoginField() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsRender(false);
-    
+
     const result = await signin(email, password);
     if (result.message) {
       setError(result.message);
       setIsRender(true);
     } else {
-      return navigate('/home')
+      return navigate('/home');
     }
   };
 

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { User } from "../types/User";
-import { AuthContext } from "./AuthContext";
-import userAPI from "../services/userAPI";
+import { useEffect, useState } from 'react';
+import { User } from '../types/User';
+import { AuthContext } from './AuthContext';
+import userAPI from '../services/userAPI';
 
 export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<User | null>(null);
-  const [tweet, setTweet] = useState('');
+  const [tweet, setTweet] = useState([]);
 
   const signin = async (email: string, password: string) => {
     const data = await userAPI.signin({ email, password });
@@ -13,13 +13,13 @@ export function AuthProvider({ children }: any) {
     if (data.user && data.token) {
       setUser(data.user);
       setTokenInStorage(data.token);
-    } 
+    }
     return data;
-  }
+  };
 
   const setTokenInStorage = (token: string) => {
     localStorage.setItem('authToken', token);
-  }
+  };
 
   useEffect(() => {
     const validateToken = async () => {
@@ -31,15 +31,28 @@ export function AuthProvider({ children }: any) {
           return setUser(data);
         }
       }
-    }
+    };
     validateToken();
-  }, [userAPI])
+  }, [userAPI]);
+
+  useEffect(() => {
+    const getAllTweets = async () => {
+      try {
+        const data = await userAPI.allTweets();
+        setTweet(data);
+      } catch (e: any) {
+        console.log(e.message);
+      }
+    };
+    getAllTweets();
+  }, [userAPI]);
 
   const data = {
     user,
     signin,
-  }
-  
+    tweet,
+  };
+
   return (
     <AuthContext.Provider value={data}>
       { children }
