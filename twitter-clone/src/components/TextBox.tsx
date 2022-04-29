@@ -6,8 +6,6 @@ export function TextBox() {
   const [text, setText] = useState('');
 
   const sendTweet = async () => {
-    console.log(typeof text);
-
     try {
       await userAPI.tweet(text, token);
     } catch (e: any) {
