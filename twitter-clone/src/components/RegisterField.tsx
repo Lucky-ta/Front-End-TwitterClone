@@ -32,43 +32,42 @@ export function RegisterField() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="USERNAME">Nome: </label>
         <input
           type="text"
           required
           id="USERNAME"
           onChange={(e) => setName(e.target.value)}
-          placeholder="Digite seu nome"
+          placeholder="Nome"
         />
       </div>
       <div>
-        <label htmlFor="EMAIL">E-mail: </label>
         <input
           type="email"
           required
           id="EMAIL"
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Digite um e-mail"
+          placeholder="E-mail"
         />
       </div>
       <div>
-        <label htmlFor="PASSWORD">Senha: </label>
         <input
           type="password"
           required
           id="PASSWORD"
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Crie uma senha para login"
+          placeholder="Senha"
         />
       </div>
       {isRender
         ? (
-          <button
-            type="submit"
-            disabled={password.length < 6 || !name || !email}
-          >
-            Registrar
-          </button>
+          <div>
+            <button
+              type="submit"
+              disabled={password.length < 6 || !name || !email}
+            >
+              Registrar
+            </button>
+          </div>
         ) : 'Carregando...'}
       { error.length != 0 && <span>{ error }</span> }
     </form>

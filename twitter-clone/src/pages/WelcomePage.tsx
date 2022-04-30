@@ -1,17 +1,20 @@
 import { LoginField } from '../components/LoginField';
 import { RegisterField } from '../components/RegisterField';
+import '../css/WelcomePage.css'
 
 export function WelcomePage() {
   return (
-    <div>
-      <div>
+    <div className='welcome-page'>
+      <div className='title'>
         <h1>Bem vindo(a) ao Grupo do Trago</h1>
-        <h2>Login</h2>
+      </div>
+      <div className='login-form'>
         <LoginField />
       </div>
-      <div>
-        <p>Não é cadastrado?</p>
-        <h2>Registrar-se</h2>
+      <hr />
+        <p className='not-registered-txt'>Não é cadastrado?</p>
+      <div className='register-form'>
+        <h2 className='form-name'>Registrar-se</h2>
         <RegisterField />
       </div>
     </div>

@@ -1,0 +1,55 @@
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.title,.login-form,.register-form  {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2em;
+}
+
+.login-form,.register-form {
+    border-radius: 2em;
+    max-width: 600px;
+    align-self: center;
+}
+ 
+.form-name {
+    text-align: initial;
+    padding-left: 1em;
+}
+
+.not-registered-txt {
+    text-align: center;
+    margin-top: 1em;
+    font-weight: 500;
+    font-size: 2em;
+}
+
+input {
+    height: 3em;
+    margin: 0.8em;
+    border-radius: 1.6em;
+    padding-left: 16px;
+    width: 40vh;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 43vh;
+    margin-top: 1em;
+    max-width: 400px;
+    height: 3em;
+    border-radius: 1.6em;
+    background-color: #1DB954;
+    color: black;
+    font-size: 1em;
+    font-weight: 600;
+}

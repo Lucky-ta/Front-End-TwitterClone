@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import '../css/WelcomePage.css'
 
 export function LoginField() {
   const [email, setEmail] = useState('');
@@ -27,34 +28,35 @@ export function LoginField() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2 className='form-name'>Login</h2>
       <div>
-        <label htmlFor="EMAIL">E-mail: </label>
         <input
           type="email"
           required
           id="EMAIL"
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Digite seu e-mail"
+          placeholder="E-mail"
         />
       </div>
       <div>
-        <label htmlFor="PASSWORD">Senha: </label>
         <input
           type="password"
           required
           id="PASSWORD"
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Digite uma senha de acesso"
+          placeholder="Senha"
         />
       </div>
       {isRender
         ? (
-          <button
-            type="submit"
-            disabled={password.length < 6}
-          >
-            Login
-          </button>
+          <div className='submit-btn'>
+            <button
+              type="submit"
+              disabled={password.length < 6}
+            >
+              Login
+            </button>
+          </div>
         ) : 'Carregando...'}
       { error.length != 0 && <span>{ error }</span> }
     </form>
