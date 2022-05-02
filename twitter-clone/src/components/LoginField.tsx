@@ -28,7 +28,7 @@ export function LoginField() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="form-name">Login</h2>
+      <h2 className="form-name">Entrar</h2>
       <div>
         <input
           type="email"
@@ -54,7 +54,7 @@ export function LoginField() {
               type="submit"
               disabled={password.length < 6}
             >
-              Login
+              Entrar
             </button>
           </div>
         ) : 'Carregando...'}

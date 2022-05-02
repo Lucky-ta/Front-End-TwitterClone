@@ -7,12 +7,15 @@ export function WelcomePage() {
   return (
     <div className="welcome-page">
       <div className="title">
-        <h1>Bem vindo(a) ao Grupo do Trago</h1>
+        <h1>Bem vindo(a) ao Grupo do Trago!</h1>
       </div>
       <div className="login-form">
         <LoginField />
       </div>
-      <Link to="/register">Cadastre-se</Link>
+      <div className='register-div'>
+        <Link className='register-txt' to="/register">Não é cadastrado? Cadastre-se!</Link>
+        <Link className='register-txt' to="/passwordRecovery">Recuperar senha.</Link>
+      </div>
     </div>
   );
 }
