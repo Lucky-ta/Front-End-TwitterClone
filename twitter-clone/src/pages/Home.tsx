@@ -4,8 +4,8 @@ import { InvalidUser } from '../components/InvalidUser';
 import { LoginField } from '../components/LoginField';
 import { OptionsBar } from '../components/OptionsBar';
 import { TextBox } from '../components/TextBox';
-import { Tweet } from '../components/Tweet';
 import { AuthContext } from '../contexts/AuthContext';
+import '../css/HomePage.css';
 
 export function Home() {
   const auth = useContext(AuthContext);
@@ -15,16 +15,23 @@ export function Home() {
   }
 
   return (
-    <div>
-      <Header />
-      <OptionsBar />
-      <TextBox />
-      <h2>
-        bem vindo,
-        {auth.user.name}
-        !
-      </h2>
-      <Tweet />
+    <div className="home-page">
+      <div className="header-div">
+        <Header />
+      </div>
+      <div className="optionBar-div">
+        <OptionsBar />
+      </div>
+      <div className="welcome-user-txt">
+        <h2>
+          bem vindo,
+          {auth.user.name}
+          !
+        </h2>
+      </div>
+      <div className="textBox-div">
+        <TextBox />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
-import '../css/WelcomePage.css'
+import '../css/WelcomePage.css';
 
 export function LoginField() {
   const [email, setEmail] = useState('');
@@ -28,7 +28,7 @@ export function LoginField() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className='form-name'>Login</h2>
+      <h2 className="form-name">Login</h2>
       <div>
         <input
           type="email"
@@ -49,7 +49,7 @@ export function LoginField() {
       </div>
       {isRender
         ? (
-          <div className='submit-btn'>
+          <div className="submit-btn">
             <button
               type="submit"
               disabled={password.length < 6}
