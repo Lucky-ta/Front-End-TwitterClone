@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&family=Work+Sans:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&family=Work+Sans:ital,wght@1,300&display=swap');
+
 .welcome-page {
     display: flex;
     flex-direction: column;
+    font-family: 'Kanit', sans-serif;
 }
 
-.title,.login-form,.register-form  {
+.login-form,.register-form  {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 2em;
+    background-color: aqua;
+    margin-top: 5em;
+    /* padding-top: 5em; */
+}
+
+.title-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Orelega One', cursive;
+    background-color: #1DB954;
+    /* padding-top: 2em; */
+    margin-top: 3em;
 }
 
 .login-form,.register-form {
@@ -64,4 +80,9 @@ button {
     font-weight: 700;
     border-style: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+button:hover{
+   background-color: #111111;
+   transition: 0.2s;
 }

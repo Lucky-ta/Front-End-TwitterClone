@@ -6,8 +6,8 @@ import '../css/WelcomePage.css';
 export function WelcomePage() {
   return (
     <div className="welcome-page">
-      <div className="title">
-        <h1>Bem vindo(a) ao Grupo do Trago!</h1>
+      <div className="title-div">
+        <h1 className='title'>Bem vindo(a) ao Grupo do Trago!</h1>
       </div>
       <div className="login-form">
         <LoginField />
