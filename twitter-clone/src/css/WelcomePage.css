@@ -11,19 +11,16 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: aqua;
-    margin-top: 5em;
-    /* padding-top: 5em; */
 }
 
 .title-div {
-    display: flex;
-    flex-direction: column;
     text-align: center;
     font-family: 'Orelega One', cursive;
-    background-color: #1DB954;
-    /* padding-top: 2em; */
-    margin-top: 3em;
+    padding-bottom: 1.5em;
+}
+
+.title {
+    padding-top: 2em;
 }
 
 .login-form,.register-form {
@@ -32,10 +29,14 @@
     align-self: center;
 }
  
-.form-name {
+.form-name, .register-name {
     text-align: initial;
     padding-left: 1em;
     font-weight: 600;
+}
+
+.register-name {
+    padding-top: 4em;
 }
 
 .not-registered-txt {
