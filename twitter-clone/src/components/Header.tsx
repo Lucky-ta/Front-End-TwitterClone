@@ -1,7 +1,7 @@
 export function Header() {
   return (
     <header>
-      <h1>Main page</h1>
+      <h1 className="main-page-txt">Main page</h1>
     </header>
   );
 }
