@@ -19,19 +19,14 @@ export function Home() {
       <div className="header-div">
         <Header />
       </div>
-      <div className="optionBar-div">
-        <OptionsBar />
+      <div className='register-body-div'>
+        <div className="textBox-div">
+          <TextBox />
+        </div>
       </div>
-      <div className="welcome-user-txt">
-        <h2>
-          bem vindo,
-          {auth.user.name}
-          !
-        </h2>
-      </div>
-      <div className="textBox-div">
-        <TextBox />
-      </div>
+      <div className='optionBar-div'>
+          <OptionsBar />
+        </div>
     </div>
   );
 }

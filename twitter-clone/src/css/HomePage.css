@@ -1,0 +1,38 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.header-div {
+    background-color: aqua;
+    text-align: center;
+    width: 100%;
+}
+
+.register-body-div {
+    display: flex;
+
+}
+
+.textBox-div {
+    background-color: rgb(132, 1, 255);
+    text-align: center;
+    width: 100%;
+    padding-top: 1.5em;
+    padding-bottom: 3em;
+}
+
+.optionBar-div {
+    background-color: rgb(255, 0, 0);
+    flex: 1;
+    padding-top: 1em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+}
+
+.option-body-div {
+    display: flex;
+    justify-content: space-between;
+}
