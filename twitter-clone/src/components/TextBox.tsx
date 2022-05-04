@@ -16,8 +16,8 @@ export function TextBox() {
   };
 
   return (
-    <div>
-      <div>
+    <div className='tweet-body-div'>
+      {/* <div>
         <input
           type="text"
           placeholder="tweet something"
@@ -26,12 +26,14 @@ export function TextBox() {
       </div>
       <div>
         <button type="button" onClick={sendTweet}>Tweetar</button>
-      </div>
-      <div>
+      </div> */}
+      <div className='tweets-div'>
         {tweet.map(({ User, tweet }) => (
-          <div>
+          <div className='tweets'>
+            <span>PHOTO</span>
             <span>{ User.name }</span>
             <p>{tweet}</p>
+            <hr />
           </div>
         ))}
       </div>
