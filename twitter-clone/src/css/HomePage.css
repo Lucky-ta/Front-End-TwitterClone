@@ -6,11 +6,15 @@
 }
 
 .header-div {
-    background-color: aqua;
+    /* background-color: aqua; */
     position: fixed;
     text-align: center;
     padding: 0.5em;
     width: 100%;
+}
+
+.main-page-txt {
+    padding-bottom: 0.4em;
 }
 
 .register-body-div {
@@ -19,24 +23,24 @@
 }
 
 .textBox-div {
-    background-color: rgb(132, 1, 255);
-    text-align: start;
     width: 100%;
     padding-top: 4em;
     padding-bottom: 14%;
 }
 
-.tweet {
-    text-align: center;
+.user-tweet {
     width: 100%;
-    padding-top: 2em;
+    /* padding-left: 4em; */
+    padding-top: 1em;
     padding-bottom: 1em;
 }
 
-.photo-name-div {
-    display: flex;
+.username {
     padding-left: 4em;
-    gap: 1.8em;
+}
+
+.photo-name-div {
+    /* display: flex; */
     padding-top: 1.3em;
 }
 

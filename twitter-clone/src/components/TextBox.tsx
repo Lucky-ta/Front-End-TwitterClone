@@ -29,12 +29,11 @@ export function TextBox() {
       </div> */}
       <div className='tweets-div'>
         {tweet.map(({ User, tweet }) => (
-          <div className='tweets'>
+          <div>
             <div className='photo-name-div'>
-              <span>PHOTO</span>
-              <span>{ User.name }</span>
+              <p className='username'>{ User.name }</p>
+              <p className='user-tweet'>{tweet}</p>
             </div>
-            <p className='tweet'>{tweet}</p>
             <hr />
           </div>
         ))}
