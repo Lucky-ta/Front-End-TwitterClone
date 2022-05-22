@@ -7,6 +7,7 @@
     padding-top: 0.5em;
     text-align: center;
     width: 100%;
+    background-color: rgb(69, 69, 73);
 }
 
 .header {
@@ -30,6 +31,8 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    background-color: rgb(31, 30, 30);
+    padding-bottom: 4em;
 }
 
 .tweets-container{
@@ -48,12 +51,12 @@
 }
 
 .tweet-text {
-    padding-left: 2em;
     padding-bottom: 0.4em;
+    padding-left: 0.3em;
 }
 
 .optionBar-div {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -70,4 +73,15 @@
     background: none;
     border: none;
     color: rgb(219, 213, 224);
+}
+
+.profile-pic {
+    width: 2.5em;
+    border-radius: 2em;
+}
+
+.name-pic-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
 }
