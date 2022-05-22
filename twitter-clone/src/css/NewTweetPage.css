@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&family=Work+Sans:ital,wght@1,300&display=swap');
+
 .newTweet-page-container {
     display: flex;
     flex-direction: column;
+    font-family: 'Kanit', sans-serif;
+    
 }
 
 .back-arrow {
@@ -12,13 +16,16 @@
     flex-direction: column;
     gap: 1em;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
-.newTweet-input {
+textarea {
     background: none;
     background-color: rgb(240, 238, 238);
     height: 12em;
     text-align: center;
+    border-radius: 1em;
+    line-height: 4em;
 }
 
 .newTweet-addBtn {
