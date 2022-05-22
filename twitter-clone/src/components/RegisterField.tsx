@@ -62,6 +62,7 @@ export function RegisterField() {
         ? (
           <div>
             <button
+              className='enter-btn'
               type="submit"
               disabled={password.length < 6 || !name || !email}
             >
