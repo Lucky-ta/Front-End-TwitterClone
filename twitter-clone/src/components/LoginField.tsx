@@ -51,7 +51,7 @@ export function LoginField() {
         ? (
           <div className="submit-btn">
             <button
-            className='enter-btn'
+              className="enter-btn"
               type="submit"
               disabled={password.length < 6}
             >

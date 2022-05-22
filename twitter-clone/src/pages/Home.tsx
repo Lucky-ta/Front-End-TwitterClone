@@ -22,7 +22,7 @@ export function Home() {
       <div className="textBox-div">
         <TextBox />
       </div>
-      <div className='optionBar-div'>
+      <div className="optionBar-div">
         <OptionsBar />
       </div>
     </div>
