@@ -1,61 +1,55 @@
 .home-page {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    min-height: 100vh;
 }
 
 .header-div {
-    /* background-color: aqua; */
-    position: fixed;
+    padding-top: 0.5em;
     text-align: center;
-    padding: 0.5em;
     width: 100%;
 }
 
 .main-page-txt {
-    padding-bottom: 0.4em;
-}
-
-.register-body-div {
-    display: flex;
-
+    padding-bottom: 0.5em;
 }
 
 .textBox-div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
-    padding-top: 4em;
-    padding-bottom: 14%;
 }
 
-.user-tweet {
-    width: 100%;
-    /* padding-left: 4em; */
-    padding-top: 1em;
-    padding-bottom: 1em;
+.tweets-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.username {
+.tweets {
+    display: flex;
+    flex-direction: column;
+    padding-bottom:0.3em ;
+    padding-top: 1.5em;
     padding-left: 4em;
+    gap: 1em;
 }
 
-.photo-name-div {
-    /* display: flex; */
-    padding-top: 1.3em;
+.tweet-text {
+    padding-left: 2em;
+    padding-bottom: 0.4em;
 }
 
 .optionBar-div {
-    background-color: rgb(255, 0, 0);
-    flex: 1;
-    padding: 1em;
-    position: fixed;
-    width: 100%;
+    position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 .option-body-div {
     display: flex;
-    justify-content: space-between;
-    padding-left: 2em;
-    padding-right: 2em;
+    justify-content: space-around;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background-color: rgb(69, 69, 73);
 }

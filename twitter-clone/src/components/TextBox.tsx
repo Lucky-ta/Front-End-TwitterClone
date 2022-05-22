@@ -7,37 +7,25 @@ export function TextBox() {
   const [text, setText] = useState('');
   const { tweet } = useContext(AuthContext);
 
-  const sendTweet = async () => {
-    try {
-      await userAPI.tweet(text, token);
-    } catch (e: any) {
-      console.log(e.message);
-    }
-  };
+  // const sendTweet = async () => {
+  //   try {
+  //     await userAPI.tweet(text, token);
+  //   } catch (e: any) {
+  //     console.log(e.message);
+  //   }
+  // };
 
   return (
-    <div className='tweet-body-div'>
-      {/* <div>
-        <input
-          type="text"
-          placeholder="tweet something"
-          onChange={(e) => setText(e.target.value)}
-        />
-      </div>
-      <div>
-        <button type="button" onClick={sendTweet}>Tweetar</button>
-      </div> */}
-      <div className='tweets-div'>
+      <div className='textbox-body-container'>
         {tweet.map(({ User, tweet }) => (
-          <div>
-            <div className='photo-name-div'>
-              <p className='username'>{ User.name }</p>
-              <p className='user-tweet'>{tweet}</p>
+            <div className='tweets-container'>
+              <div className='tweets'>
+                <p>{ User.name }</p>
+                <p className='tweet-text'>{tweet}</p>
+                </div>
+                <hr />
             </div>
-            <hr />
-          </div>
         ))}
       </div>
-    </div>
   );
 }

@@ -19,14 +19,12 @@ export function Home() {
       <div className="header-div">
         <Header />
       </div>
-      <div className='register-body-div'>
-        <div className="textBox-div">
-          <TextBox />
-        </div>
+      <div className="textBox-div">
+        <TextBox />
       </div>
       <div className='optionBar-div'>
-          <OptionsBar />
-        </div>
+        <OptionsBar />
+      </div>
     </div>
   );
 }
