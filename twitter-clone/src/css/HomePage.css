@@ -9,8 +9,20 @@
     width: 100%;
 }
 
+.header {
+    display: flex;
+    text-align: center;
+}
+
+.home-btn-header {
+    padding-left: 2em;
+}
+
 .main-page-txt {
     padding-bottom: 0.5em;
+    margin: auto;
+    padding-right: 1em;
+    
 }
 
 .textBox-div {
@@ -30,7 +42,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom:0.3em ;
-    padding-top: 1.5em;
+    padding-top: 1.4em;
     padding-left: 4em;
     gap: 1em;
 }
@@ -52,4 +64,10 @@
     padding-bottom: 1em;
     padding-top: 1em;
     background-color: rgb(69, 69, 73);
+}
+
+.option-btn, .home-btn-header {
+    background: none;
+    border: none;
+    color: rgb(219, 213, 224);
 }

@@ -69,7 +69,7 @@ form {
     flex-direction: column;
 }
 
-button {
+.enter-btn {
     width: 43vh;
     margin-top: 1em;
     max-width: 400px;
