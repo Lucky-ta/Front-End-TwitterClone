@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import userAPI from '../services/userAPI';
+import { AddTweetBtn } from './AddTweetBtn';
 
 export function TextBox() {
   const token = localStorage.getItem('authToken') || '';
@@ -29,6 +30,9 @@ export function TextBox() {
                 <hr />
             </div>
         ))}
+        <div className='add-tweet-btn-container'>
+          <AddTweetBtn/>
+        </div>
       </div>
   );
 }
