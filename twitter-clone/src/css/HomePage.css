@@ -16,17 +16,17 @@
 .header {
     display: flex;
     text-align: center;
+    justify-content: space-around;
 }
 
-.home-btn-header {
-    padding-left: 2em;
+.exit-btn-header {
+    background: none;
+    border: none;
+    color: rgb(235, 226, 226);
 }
 
 .main-page-txt {
     padding-bottom: 0.5em;
-    margin: auto;
-    padding-right: 1em;
-    
 }
 
 .textBox-div {
