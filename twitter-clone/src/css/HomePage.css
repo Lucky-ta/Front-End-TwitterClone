@@ -11,6 +11,7 @@
     text-align: center;
     width: 100%;
     background-color: rgb(69, 69, 73);
+    position: fixed
 }
 
 .header {
@@ -36,6 +37,7 @@
     width: 100%;
     background-color: rgb(31, 30, 30);
     padding-bottom: 4em;
+    padding-top: 4em;
 }
 
 .tweets-container{
