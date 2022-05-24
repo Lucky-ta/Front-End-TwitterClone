@@ -6,14 +6,14 @@ import { AddTweetBtn } from './AddTweetBtn';
 
 export function TextBox() {
   const [tweet, setTweet]: any = useState([]);
-  const { reload } = useContext(AuthContext);
+  const { reload, setAllTweets } = useContext(AuthContext);
 
   useEffect(() => {
     const getAllTweets = async () => {
       try {
         const data = await userAPI.allTweets();
         setTweet(data);
-        console.log(data);
+        setAllTweets(data)
       } catch (e: any) {
         console.log(e.message);
       }

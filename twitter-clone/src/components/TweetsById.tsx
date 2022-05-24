@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-
 function TweetsById() {
-  const { user } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem('user') || '')
+  console.log(user);
+  
 
     return(
         <div className="profile-body-container">

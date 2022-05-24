@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
 
 export function OptionsBar() {
-  const { user } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem('user') || '')
   
   const redirectHomePage = () => {
     window.scrollTo({

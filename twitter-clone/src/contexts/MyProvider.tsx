@@ -6,6 +6,7 @@ import userAPI from '../services/userAPI';
 export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<User | null>(null);
   const [reload, setReload] = useState(false);
+  const [allTweets, setAllTweets] = useState([])
 
   const signin = async (email: string, password: string) => {
     const data = await userAPI.signin({ email, password });
@@ -13,6 +14,7 @@ export function AuthProvider({ children }: any) {
     if (data.user && data.token) {
       setUser(data.user);
       setTokenInStorage(data.token);
+      localStorage.setItem('user', JSON.stringify(user))
     }
     return data;
   };
@@ -38,7 +40,7 @@ export function AuthProvider({ children }: any) {
   const data = {
     user,
     signin,
-    // tweet,
+    allTweets, setAllTweets,
     reload,
     setReload,
   };

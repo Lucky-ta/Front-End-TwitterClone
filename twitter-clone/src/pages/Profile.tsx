@@ -17,10 +17,9 @@ function Profile() {
             <div className="optionBar-div">
                 <OptionsBar/>
             </div>
-            <div className="profile-div">
+            {/* <div className="profile-div">
                 <TweetsById />
-            </div>
-            <hr />
+            </div> */}
         </div>
     )
 }
