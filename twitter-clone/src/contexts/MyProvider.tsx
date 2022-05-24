@@ -5,7 +5,8 @@ import userAPI from '../services/userAPI';
 
 export function AuthProvider({ children }: any) {
   const [user, setUser] = useState<User | null>(null);
-  const [tweet, setTweet] = useState([]);
+  // const [tweet, setTweet] = useState([]);
+  const [reload, setReload] = useState(false);
 
   const signin = async (email: string, password: string) => {
     const data = await userAPI.signin({ email, password });
@@ -35,22 +36,11 @@ export function AuthProvider({ children }: any) {
     validateToken();
   }, [userAPI]);
 
-  useEffect(() => {
-    const getAllTweets = async () => {
-      try {
-        const data = await userAPI.allTweets();
-        setTweet(data);
-      } catch (e: any) {
-        console.log(e.message);
-      }
-    };
-    getAllTweets();
-  }, [userAPI]);
-
   const data = {
     user,
     signin,
-    tweet,
+    // tweet,
+    reload, setReload
   };
 
   return (

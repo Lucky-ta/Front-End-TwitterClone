@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import userAPI from '../services/userAPI';
 import '../css/NewTweetPage.css'
+import { AuthContext } from '../contexts/AuthContext';
 
 export function NewTweet() {
   const token = localStorage.getItem('authToken') || '';
   const [text, setText] = useState('');
+  const {reload, setReload} = useContext(AuthContext)
 
   const sendTweet = async () => {
     try {
       await userAPI.tweet(text, token);
+      setReload(!reload)
+      window.location.href = '/home'
     } catch (e: any) {
       console.log(e.message);
     }

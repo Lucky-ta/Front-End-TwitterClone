@@ -14,4 +14,4 @@ export interface IAuthContext {
     tweet: Tweet[];
 }
 
-export const AuthContext = createContext<IAuthContext>(null!);
+export const AuthContext = createContext<IAuthContext & any>(null!);

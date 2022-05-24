@@ -1,13 +1,30 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+// import { AuthContext } from '../contexts/AuthContext';
+import userAPI from '../services/userAPI';
 import { AddTweetBtn } from './AddTweetBtn';
 
 export function TextBox() {
-  const { tweet } = useContext(AuthContext);
+  const [ tweet, setTweet ]: any = useState([]);
+  const { reload } = useContext(AuthContext);
+  
+  useEffect(() => {
+    const getAllTweets = async () => {
+      try {
+        const data = await userAPI.allTweets();
+        setTweet(data);
+        console.log(data);
+        
+      } catch (e: any) {
+        console.log(e.message);
+      }
+    };
+    getAllTweets();
+  }, [reload]);
 
   return (
     <div className="textbox-body-container">
-      {tweet.map(({ User, tweet }) => (
+      {tweet.map(({ User, tweet }: any) => (
         <div className="tweets-container">
           <div className="tweets">
             <div className="name-pic-container">
