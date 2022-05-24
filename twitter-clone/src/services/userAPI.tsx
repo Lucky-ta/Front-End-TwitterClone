@@ -48,6 +48,16 @@ class useAPI {
     });
     return data.json();
   }
+
+  async allTweetsById(id: number) {
+    const data = await fetch(`https://twitter-lukita.herokuapp.com/tweet/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return data.json();
+  }
 }
 
 export default new useAPI();

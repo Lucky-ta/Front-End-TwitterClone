@@ -1,7 +1,9 @@
 import { AddTweetBtn } from "../components/AddTweetBtn";
 import { Header } from "../components/Header";
 import { OptionsBar } from "../components/OptionsBar";
+import TweetsById from "../components/TweetsById";
 import "../css/HomePage.css"
+import "../css/ProfilePage.css"
 
 function Profile() {
     return(
@@ -15,6 +17,10 @@ function Profile() {
             <div className="optionBar-div">
                 <OptionsBar/>
             </div>
+            <div className="profile-div">
+                <TweetsById />
+            </div>
+            <hr />
         </div>
     )
 }
