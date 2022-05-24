@@ -3,10 +3,10 @@ import { BiHomeAlt, BiSearchAlt, BiUser } from 'react-icons/bi';
 export function OptionsBar() {
   const redirectHomePage = () => {
     window.scrollTo({
-      top: 0
-    })
-  }
-  
+      top: 0,
+    });
+  };
+
   return (
     <div className="option-body-div">
       <button onClick={redirectHomePage} className="option-btn"><BiHomeAlt size="2em" /></button>

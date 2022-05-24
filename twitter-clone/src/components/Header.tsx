@@ -1,17 +1,16 @@
-import { BiHomeAlt } from 'react-icons/bi';
-import { BiExit } from "react-icons/bi";
+import { BiHomeAlt, BiExit } from 'react-icons/bi';
 
 export function Header() {
   const redirectHomePage = () => {
     window.scrollTo({
-      top: 0
-    })
-  }
+      top: 0,
+    });
+  };
 
   const handlerExit = () => {
-    localStorage.setItem('authToken', '')
-    window.location.href = '/'
-  }
+    localStorage.setItem('authToken', '');
+    window.location.href = '/';
+  };
 
   return (
     <div>

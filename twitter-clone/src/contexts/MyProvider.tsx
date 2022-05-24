@@ -40,7 +40,8 @@ export function AuthProvider({ children }: any) {
     user,
     signin,
     // tweet,
-    reload, setReload
+    reload,
+    setReload,
   };
 
   return (

@@ -5,16 +5,15 @@ import userAPI from '../services/userAPI';
 import { AddTweetBtn } from './AddTweetBtn';
 
 export function TextBox() {
-  const [ tweet, setTweet ]: any = useState([]);
+  const [tweet, setTweet]: any = useState([]);
   const { reload } = useContext(AuthContext);
-  
+
   useEffect(() => {
     const getAllTweets = async () => {
       try {
         const data = await userAPI.allTweets();
         setTweet(data);
         console.log(data);
-        
       } catch (e: any) {
         console.log(e.message);
       }
