@@ -16,7 +16,6 @@ export function NewTweet() {
     try {
       await userAPI.tweet(text, token);
       setReload(!reload)
-      window.location.href = '/home'
     } catch (e: any) {
       console.log(e.message);
     }
@@ -39,7 +38,9 @@ export function NewTweet() {
         <textarea rows={14} cols={38} wrap="soft" placeholder='O que está acontecendo?' className='newTweet-input' onChange={(e) => setText(e.target.value)} name="tweetBox" id="tweetBox" />
       </div>
       <div className='newTweet-addBtn'>
-        <button className='enter-btn' type="button" onClick={sendTweet}>Tweetar</button>
+        <Link to={"/home"}>
+          <button className='enter-btn' type="button" onClick={sendTweet}>Tweetar</button>
+        </Link>
       </div>
     </div>
   );
