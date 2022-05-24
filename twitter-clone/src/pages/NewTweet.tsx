@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import userAPI from '../services/userAPI';
 import '../css/NewTweetPage.css'
 import { AuthContext } from '../contexts/AuthContext';
+import { InvalidUser } from '../components/InvalidUser';
 
 export function NewTweet() {
   const token = localStorage.getItem('authToken') || '';
   const [text, setText] = useState('');
   const {reload, setReload} = useContext(AuthContext)
+  const auth = useContext(AuthContext);
 
   const sendTweet = async () => {
     try {
@@ -19,6 +21,11 @@ export function NewTweet() {
       console.log(e.message);
     }
   };
+
+
+  if (!auth.user) {
+    return <InvalidUser />;
+  }
 
   return (
     <div className='newTweet-page-container'>
