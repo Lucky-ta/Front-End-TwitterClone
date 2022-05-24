@@ -17,7 +17,7 @@ export function Home() {
   return (
     <div className="home-page">
       <div className="header-div">
-        <Header />
+        <Header title="Home page"/>
       </div>
       <div className="textBox-div">
         <TextBox />

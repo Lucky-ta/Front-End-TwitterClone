@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&family=Work+Sans:ital,wght@1,300&display=swap');
 
 .home-page {
     display: flex;
     flex-direction: column;
-    font-family: 'Kanit', sans-serif;
 }
 
 .header-div {
@@ -16,7 +14,7 @@
 
 .header {
     display: flex;
-    text-align: center;
+    align-items: center;
     justify-content: space-around;
 }
 

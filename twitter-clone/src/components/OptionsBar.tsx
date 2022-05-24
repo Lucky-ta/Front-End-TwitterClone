@@ -1,4 +1,5 @@
 import { BiHomeAlt, BiSearchAlt, BiUser } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 export function OptionsBar() {
   const redirectHomePage = () => {
@@ -11,7 +12,9 @@ export function OptionsBar() {
     <div className="option-body-div">
       <button onClick={redirectHomePage} className="option-btn"><BiHomeAlt size="2em" /></button>
       <button className="option-btn"><BiSearchAlt size="2em" /></button>
-      <button className="option-btn"><BiUser size="2em" /></button>
+      <Link to={"/profile"}>
+        <button className="option-btn"><BiUser size="2em" /></button>
+      </Link>
     </div>
   );
 }
