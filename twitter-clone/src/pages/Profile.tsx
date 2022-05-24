@@ -1,5 +1,6 @@
 import { AddTweetBtn } from "../components/AddTweetBtn";
 import { Header } from "../components/Header";
+import { OptionsBar } from "../components/OptionsBar";
 import "../css/HomePage.css"
 
 function Profile() {
@@ -10,6 +11,9 @@ function Profile() {
             </div>
             <div className="add-tweet-btn-container">
                 <AddTweetBtn />
+            </div>
+            <div className="optionBar-div">
+                <OptionsBar/>
             </div>
         </div>
     )
