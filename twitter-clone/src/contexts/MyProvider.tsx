@@ -10,6 +10,8 @@ export function AuthProvider({ children }: any) {
 
   const signin = async (email: string, password: string) => {
     const data = await userAPI.signin({ email, password });
+    console.log(data);
+    
 
     if (data.user && data.token) {
       setUser(data.user);
@@ -47,7 +49,7 @@ export function AuthProvider({ children }: any) {
 
   return (
     <AuthContext.Provider value={data}>
-      { children }
+      {children}
     </AuthContext.Provider>
   );
 }

@@ -1,27 +1,48 @@
-import { AddTweetBtn } from "../components/AddTweetBtn";
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../components/Header";
+import { InvalidUser } from "../components/InvalidUser";
 import { OptionsBar } from "../components/OptionsBar";
-import TweetsById from "../components/TweetsById";
-import "../css/HomePage.css"
-import "../css/ProfilePage.css"
+import { TextBox } from "../components/TextBox";
+import { AuthContext } from "../contexts/AuthContext";
+import userAPI from "../services/userAPI";
 
-function Profile() {
-    return(
-        <div>
+export default function Profile() {
+    const auth = useContext(AuthContext);
+    const user = JSON.parse(localStorage.getItem('user') || '')
+    console.log(user);
+    
+
+    if (!auth.user) {
+      return <InvalidUser />;
+    }
+  
+    const [tweet, setTweet]: any = useState([]);
+    const { reload } = useContext(AuthContext);
+  
+    useEffect(() => {
+      const getAllTweets = async () => {
+        try {
+          const data = await userAPI.allTweets();
+          const userTweets = data.filter(({userId}: any) => userId === user.id )
+          setTweet(userTweets);
+        } catch (e: any) {
+          console.log(e.message);
+        }
+      };
+      getAllTweets();
+    }, [reload]);
+
+    return (
+        <div className="home-page">
             <div className="header-div">
-                <Header title="Perfil"/>
+                <Header title="Profile Page" />
             </div>
-            <div className="add-tweet-btn-container">
-                <AddTweetBtn />
+            <div className="textBox-div">
+                <TextBox tweets={tweet} />
             </div>
             <div className="optionBar-div">
-                <OptionsBar/>
+                <OptionsBar />
             </div>
-            {/* <div className="profile-div">
-                <TweetsById />
-            </div> */}
         </div>
     )
 }
-
-export default Profile;

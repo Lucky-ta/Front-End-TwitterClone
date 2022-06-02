@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import { LoginField } from './LoginField';
-import { RegisterField } from './RegisterField';
 
 export function InvalidUser() {
   return (

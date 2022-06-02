@@ -1,11 +1,9 @@
-import { useContext } from 'react';
 import { BiHomeAlt, BiSearchAlt, BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
 
 export function OptionsBar() {
   const user = JSON.parse(localStorage.getItem('user') || '')
-  
+
   const redirectHomePage = () => {
     window.scrollTo({
       top: 0,

@@ -59,7 +59,7 @@ export function LoginField() {
             </button>
           </div>
         ) : 'Carregando...'}
-      { error.length != 0 && <span>{ error }</span> }
+      {error.length !== 0 && <span>{error}</span>}
     </form>
   );
 }
