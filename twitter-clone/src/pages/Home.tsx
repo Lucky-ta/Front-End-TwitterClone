@@ -23,7 +23,7 @@ export function Home() {
       try {
         const data = await userAPI.allTweets();
         setTweet(data);
-        setAllTweets(data)
+        setAllTweets(data);
       } catch (e: any) {
         console.log(e.message);
       }
@@ -34,10 +34,10 @@ export function Home() {
   return (
     <div className="home-page">
       <div className="header-div">
-        <Header title="Home page"/>
+        <Header title="Home page" />
       </div>
       <div className="textBox-div">
-        <TextBox tweets={tweet}/>
+        <TextBox tweets={tweet} />
       </div>
       <div className="optionBar-div">
         <OptionsBar />

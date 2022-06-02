@@ -2,7 +2,7 @@ import { BiHomeAlt, BiSearchAlt, BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 export function OptionsBar() {
-  const user = JSON.parse(localStorage.getItem('user') || '')
+  const user = JSON.parse(localStorage.getItem('user') || '');
 
   const redirectHomePage = () => {
     window.scrollTo({
