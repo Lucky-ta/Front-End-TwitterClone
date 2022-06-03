@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
 import registerUser from '../services/registerUser';
+import { useNavigate } from 'react-router'
 
 export default function RegisterField() {
   const [email, setEmail] = useState('');
@@ -8,11 +8,11 @@ export default function RegisterField() {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [isRender, setIsRender] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsRender(false);
-    const navigate = useNavigate();
 
     try {
       const token = await registerUser({
@@ -20,13 +20,13 @@ export default function RegisterField() {
         email,
         password,
       });
-      if (token.message) {
+      if (token.message === 'E-mail já cadastrado') {
         setIsRender(true);
         setError(token.message);
       } else {
         setError('Cadastro feito com sucesso!');
         setIsRender(true);
-        return navigate('/login');
+        navigate("/");
       }
     } catch (e: any) {
       console.log(e.message);
@@ -74,7 +74,7 @@ export default function RegisterField() {
             </button>
           </div>
         ) : 'Carregando...'}
-      {error.length != 0 && <span>{error}</span>}
+      {error.length !== 0 && <span>{error}</span>}
     </form>
   );
 }
