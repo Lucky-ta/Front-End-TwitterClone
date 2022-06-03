@@ -9,11 +9,6 @@ export function AuthProvider({ children }: any) {
   const [allTweets, setAllTweets] = useState([]);
 
   useEffect(() => {
-
-  })
-
-
-  useEffect(() => {
     const validateToken = async () => {
       const storageData = localStorage.getItem('token');
 
