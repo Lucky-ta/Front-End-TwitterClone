@@ -1,8 +1,8 @@
 import { BiPencil } from 'react-icons/bi';
-import { Navigate } from 'react-router';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export function AddTweetBtn() {
+export default function AddTweetBtn() {
   return (
     <div>
       <Link to="/home/NewTweet">

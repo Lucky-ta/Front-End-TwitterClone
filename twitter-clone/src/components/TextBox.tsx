@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { AddTweetBtn } from './AddTweetBtn';
+import AddTweetBtn from './AddTweetBtn';
 import MoreOptions from './MoreOptions';
 
-export function TextBox({ tweets }: any) {
+export default function TextBox({ tweets }: any) {
   const [tweet, setTweet] = useState([]);
   const params = useParams();
 
@@ -13,7 +13,9 @@ export function TextBox({ tweets }: any) {
 
   return (
     <div className="textbox-body-container">
-      {tweet.map(({ User, tweet, id, userId }: any) => (
+      {tweet.map(({
+        User, tweet, id, userId,
+      }: any) => (
         <div className="tweets-container">
           <div className="tweets">
             <div className="name-pic-container">

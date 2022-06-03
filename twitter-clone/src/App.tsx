@@ -1,4 +1,5 @@
-import { Router } from './routes/Routes';
+import React from 'react';
+import Router from './routes/Routes';
 import { AuthProvider } from './contexts/MyProvider';
 
 function App() {

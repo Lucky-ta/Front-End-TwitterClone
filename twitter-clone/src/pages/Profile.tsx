@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { Header } from '../components/Header';
-import { InvalidUser } from '../components/InvalidUser';
-import { OptionsBar } from '../components/OptionsBar';
-import { TextBox } from '../components/TextBox';
+import React, { useContext, useEffect, useState } from 'react';
+import Header from '../components/Header';
+import InvalidUser from '../components/InvalidUser';
+import OptionsBar from '../components/OptionsBar';
+import TextBox from '../components/TextBox';
 import { AuthContext } from '../contexts/AuthContext';
 import userAPI from '../services/userAPI';
 
@@ -36,7 +36,7 @@ export default function Profile() {
         <Header title="Profile Page" />
       </div>
       <div className="textBox-div">
-        <TextBox tweets={tweet}/>
+        <TextBox tweets={tweet} />
       </div>
       <div className="optionBar-div">
         <OptionsBar />

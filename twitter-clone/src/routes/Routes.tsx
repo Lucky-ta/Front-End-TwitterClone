@@ -3,13 +3,15 @@ import {
   Route,
   Routes,
 } from 'react-router-dom';
-import { Home } from '../pages/Home';
-import { NewTweet } from '../pages/NewTweet';
-import Profile from '../pages/Profile';
-import { Register } from '../pages/Register';
-import { WelcomePage } from '../pages/WelcomePage';
+import React from 'react';
 
-export function Router() {
+import Home from '../pages/Home';
+import NewTweet from '../pages/NewTweet';
+import Profile from '../pages/Profile';
+import Register from '../pages/Register';
+import WelcomePage from '../pages/WelcomePage';
+
+export default function Router() {
   return (
     <BrowserRouter>
       <Routes>

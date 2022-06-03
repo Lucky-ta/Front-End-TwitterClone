@@ -1,7 +1,8 @@
 import { BiHomeAlt, BiExit } from 'react-icons/bi';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export function Header({ title }:any) {
+export default function Header({ title }:any) {
   const redirectHomePage = () => {
     window.scrollTo({
       top: 0,

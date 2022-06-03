@@ -4,7 +4,7 @@ interface IUserAttributes {
     password: string,
 }
 
-export async function registerUser(credentials: IUserAttributes) {
+export default async function registerUser(credentials: IUserAttributes) {
   const data = await fetch('https://twitter-lukita.herokuapp.com/user', {
     method: 'POST',
     headers: {
@@ -12,5 +12,5 @@ export async function registerUser(credentials: IUserAttributes) {
     },
     body: JSON.stringify(credentials),
   });
-  return await data.json();
+  return data.json();
 }

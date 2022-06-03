@@ -1,14 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
-import { Header } from '../components/Header';
-import { InvalidUser } from '../components/InvalidUser';
-import { LoginField } from '../components/LoginField';
-import { OptionsBar } from '../components/OptionsBar';
-import { TextBox } from '../components/TextBox';
+import React, { useContext, useEffect, useState } from 'react';
+import Header from '../components/Header';
+import InvalidUser from '../components/InvalidUser';
+import OptionsBar from '../components/OptionsBar';
+import TextBox from '../components/TextBox';
 import { AuthContext } from '../contexts/AuthContext';
 import '../css/HomePage.css';
 import userAPI from '../services/userAPI';
 
-export function Home() {
+export default function Home() {
   const auth = useContext(AuthContext);
 
   if (!auth.user) {

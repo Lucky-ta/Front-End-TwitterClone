@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { LoginField } from '../components/LoginField';
-import { RegisterField } from '../components/RegisterField';
+import React from 'react';
+import LoginField from '../components/LoginField';
 import '../css/WelcomePage.css';
 
-export function WelcomePage() {
+export default function WelcomePage() {
   return (
     <div className="welcome-page">
       <div className="title-div">

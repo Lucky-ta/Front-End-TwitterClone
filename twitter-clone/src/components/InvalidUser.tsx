@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-export function InvalidUser() {
+export default function InvalidUser() {
   return (
     <div>
       <h2>Você não tem permisão para acessar esta pagina!</h2>

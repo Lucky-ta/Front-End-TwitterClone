@@ -3,7 +3,7 @@ interface IUserAttributes {
     password: string,
 }
 
-class useAPI {
+class UseAPI {
   async authToken(token: string) {
     const data = await fetch('https://twitter-lukita.herokuapp.com/user/validate', {
       method: 'POST',
@@ -12,7 +12,7 @@ class useAPI {
         Authorization: token,
       },
     });
-    return await data.json();
+    return data.json();
   }
 
   async signin(credentials: IUserAttributes) {
@@ -23,7 +23,7 @@ class useAPI {
       },
       body: JSON.stringify(credentials),
     });
-    return await data.json();
+    return data.json();
   }
 
   async tweet(tweet: any, token: string) {
@@ -31,7 +31,6 @@ class useAPI {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // 'Accept': 'application/json',
         Authorization: token,
       },
       body: JSON.stringify({ tweet }),
@@ -71,7 +70,6 @@ class useAPI {
     });
     return data;
   }
-
 }
 
-export default new useAPI();
+export default new UseAPI();

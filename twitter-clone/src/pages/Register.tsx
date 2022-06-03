@@ -1,6 +1,7 @@
-import { RegisterField } from '../components/RegisterField';
+import React from 'react';
+import RegisterField from '../components/RegisterField';
 
-export function Register() {
+export default function Register() {
   return (
     <div className="welcome-page">
       <div className="register-form">

@@ -1,7 +1,8 @@
 import { BiHomeAlt, BiUser } from 'react-icons/bi';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export function OptionsBar() {
+export default function OptionsBar() {
   const user = JSON.parse(localStorage.getItem('user') || '');
 
   const redirectHomePage = () => {
