@@ -9,7 +9,6 @@ import userAPI from '../services/userAPI';
 export default function Profile() {
   const auth = useContext(AuthContext);
   const user = JSON.parse(localStorage.getItem('user') || '');
-  console.log(user);
 
   if (!auth.user) {
     return <InvalidUser />;
@@ -37,7 +36,7 @@ export default function Profile() {
         <Header title="Profile Page" />
       </div>
       <div className="textBox-div">
-        <TextBox tweets={tweet} />
+        <TextBox tweets={tweet}/>
       </div>
       <div className="optionBar-div">
         <OptionsBar />

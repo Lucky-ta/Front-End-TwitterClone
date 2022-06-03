@@ -48,6 +48,30 @@ class useAPI {
     });
     return data.json();
   }
+
+  async deleteTweet(id: number, token: string) {
+    const data = await fetch(`https://twitter-lukita.herokuapp.com/tweet/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    return data;
+  }
+
+  async updateTweet(id: number, tweet: any, token: string) {
+    const data = await fetch(`https://twitter-lukita.herokuapp.com/tweet/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+      body: JSON.stringify({ tweet }),
+    });
+    return data;
+  }
+
 }
 
 export default new useAPI();

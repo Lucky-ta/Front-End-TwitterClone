@@ -29,7 +29,7 @@ export function Home() {
       }
     };
     getAllTweets();
-  }, [reload]);
+  }, [userAPI, reload]);
 
   return (
     <div className="home-page">
