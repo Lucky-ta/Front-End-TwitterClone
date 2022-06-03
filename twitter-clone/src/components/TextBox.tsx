@@ -6,6 +6,8 @@ import MoreOptions from './MoreOptions';
 export default function TextBox({ tweets }: any) {
   const [tweet, setTweet] = useState([]);
   const params = useParams();
+  console.log(tweets);
+  
 
   useEffect(() => {
     setTweet(tweets);

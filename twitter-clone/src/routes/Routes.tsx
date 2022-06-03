@@ -10,6 +10,7 @@ import NewTweet from '../pages/NewTweet';
 import Profile from '../pages/Profile';
 import Register from '../pages/Register';
 import WelcomePage from '../pages/WelcomePage';
+import InvalidUser from '../pages/InvalidUser';
 
 export default function Router() {
   return (
@@ -20,6 +21,7 @@ export default function Router() {
         <Route path="/register" element={<Register />} />
         <Route path="/home/NewTweet" element={<NewTweet />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/invalidUser" element={<InvalidUser />} />
       </Routes>
     </BrowserRouter>
   );

@@ -8,25 +8,14 @@ export function AuthProvider({ children }: any) {
   const [reload, setReload] = useState(false);
   const [allTweets, setAllTweets] = useState([]);
 
-  const signin = async (email: string, password: string) => {
-    const data = await userAPI.signin({ email, password });
-    console.log(data);
+  useEffect(() => {
 
-    if (data.user && data.token) {
-      setUser(data.user);
-      setTokenInStorage(data.token);
-      localStorage.setItem('user', JSON.stringify(user));
-    }
-    return data;
-  };
+  })
 
-  const setTokenInStorage = (token: string) => {
-    localStorage.setItem('authToken', token);
-  };
 
   useEffect(() => {
     const validateToken = async () => {
-      const storageData = localStorage.getItem('authToken');
+      const storageData = localStorage.getItem('token');
 
       if (storageData) {
         const data = await userAPI.authToken(storageData);
@@ -40,7 +29,6 @@ export function AuthProvider({ children }: any) {
 
   const data = {
     user,
-    signin,
     allTweets,
     setAllTweets,
     reload,

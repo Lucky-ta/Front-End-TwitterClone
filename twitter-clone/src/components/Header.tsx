@@ -10,7 +10,8 @@ export default function Header({ title }:any) {
   };
 
   const handlerExit = () => {
-    localStorage.setItem('authToken', '');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     window.location.href = '/';
   };
 

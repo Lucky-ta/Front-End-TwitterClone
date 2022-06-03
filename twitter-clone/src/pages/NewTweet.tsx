@@ -1,16 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import userAPI from '../services/userAPI';
 import '../css/NewTweetPage.css';
 import { AuthContext } from '../contexts/AuthContext';
-import InvalidUser from '../components/InvalidUser';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewTweet() {
-  const token = localStorage.getItem('authToken') || '';
+  const user = JSON.parse(localStorage.getItem('user') || '');
+  const token = localStorage.getItem('token') || '';
   const [text, setText] = useState('');
   const { reload, setReload } = useContext(AuthContext);
-  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const sendTweet = async () => {
     try {
@@ -21,9 +22,13 @@ export default function NewTweet() {
     }
   };
 
-  if (!auth.user) {
-    return <InvalidUser />;
-  }
+  useEffect(() => {
+    if (token !== user.token) {
+      navigate('/invalidUser');
+      console.log(user);
+      
+    }
+  }, [token]);
 
   return (
     <div className="newTweet-page-container">

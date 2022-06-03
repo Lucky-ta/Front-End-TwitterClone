@@ -1,21 +1,28 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
-import InvalidUser from '../components/InvalidUser';
+import InvalidUser from './InvalidUser';
 import OptionsBar from '../components/OptionsBar';
 import TextBox from '../components/TextBox';
 import { AuthContext } from '../contexts/AuthContext';
 import '../css/HomePage.css';
 import userAPI from '../services/userAPI';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  const auth = useContext(AuthContext);
-
-  if (!auth.user) {
-    return <InvalidUser />;
-  }
-
+  const user = JSON.parse(localStorage.getItem('user') || '');
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
   const [tweet, setTweet]: any = useState([]);
   const { reload, setAllTweets } = useContext(AuthContext);
+  
+  useEffect(() => {
+    if (token !== user.token) {
+      navigate('/invalidUser');
+      console.log(user);
+      
+    }
+  }, [token]);
+
 
   useEffect(() => {
     const getAllTweets = async () => {

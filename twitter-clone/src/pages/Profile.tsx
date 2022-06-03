@@ -1,27 +1,34 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
-import InvalidUser from '../components/InvalidUser';
+import InvalidUser from './InvalidUser';
 import OptionsBar from '../components/OptionsBar';
 import TextBox from '../components/TextBox';
 import { AuthContext } from '../contexts/AuthContext';
 import userAPI from '../services/userAPI';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Profile() {
-  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user') || '');
-
-  if (!auth.user) {
-    return <InvalidUser />;
-  }
+  const token = localStorage.getItem('token');
 
   const [tweet, setTweet]: any = useState([]);
   const { reload } = useContext(AuthContext);
+
+
+  useEffect(() => {
+    if (token !== user.token) {
+      navigate('/invalidUser');      
+    }
+  }, [token]);
+
 
   useEffect(() => {
     const getAllTweets = async () => {
       try {
         const data = await userAPI.allTweets();
-        const userTweets = data.filter(({ userId }: any) => userId === user.id);
+        const userTweets = data.filter(({ userId }: any) => userId === user.user.id);
         setTweet(userTweets);
       } catch (e: any) {
         console.log(e.message);

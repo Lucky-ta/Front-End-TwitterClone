@@ -14,7 +14,7 @@ export default function OptionsBar() {
   return (
     <div className="option-body-div">
       <button onClick={redirectHomePage} className="option-btn"><BiHomeAlt size="2em" /></button>
-      <Link to={`/profile/${user.id}`}>
+      <Link to={`/profile/${user.user.id}`}>
         <button className="option-btn"><BiUser size="2em" /></button>
       </Link>
     </div>
