@@ -14,7 +14,6 @@ export function WelcomePage() {
       </div>
       <div className="register-div">
         <Link className="register-txt" to="/register">Não é cadastrado? Cadastre-se!</Link>
-        <Link className="register-txt" to="/passwordRecovery">Recuperar senha.</Link>
       </div>
     </div>
   );

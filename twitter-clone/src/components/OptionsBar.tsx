@@ -1,4 +1,4 @@
-import { BiHomeAlt, BiSearchAlt, BiUser } from 'react-icons/bi';
+import { BiHomeAlt, BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 export function OptionsBar() {
@@ -13,7 +13,6 @@ export function OptionsBar() {
   return (
     <div className="option-body-div">
       <button onClick={redirectHomePage} className="option-btn"><BiHomeAlt size="2em" /></button>
-      <button className="option-btn"><BiSearchAlt size="2em" /></button>
       <Link to={`/profile/${user.id}`}>
         <button className="option-btn"><BiUser size="2em" /></button>
       </Link>

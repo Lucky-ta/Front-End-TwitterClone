@@ -33,14 +33,6 @@ export default function MoreOptions({ tweetId, tweet }: any) {
                             Excluir
                         </div>
                     </a>
-                    <a onClick={editTweet} href="#">
-                        <div>
-                            {' '}
-                            <BiEditAlt />
-                            {' '}
-                            Editar
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>

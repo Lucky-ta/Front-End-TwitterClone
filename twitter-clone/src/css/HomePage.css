@@ -94,14 +94,12 @@
 .user-name {
     font-size: 1.2em;
     color: rgb(235, 226, 226);
-    
+
 }
 
 .add-tweet-btn-container {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    top: 68%;
+    top: 60%;
     left: 76%;
 }
 
