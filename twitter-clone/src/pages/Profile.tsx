@@ -1,12 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-import InvalidUser from './InvalidUser';
 import OptionsBar from '../components/OptionsBar';
 import TextBox from '../components/TextBox';
 import { AuthContext } from '../contexts/AuthContext';
 import userAPI from '../services/userAPI';
-import { useNavigate } from 'react-router-dom';
-
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -16,19 +14,17 @@ export default function Profile() {
   const [tweet, setTweet]: any = useState([]);
   const { reload } = useContext(AuthContext);
 
-
   useEffect(() => {
-    if (token !== user.token) {
-      navigate('/invalidUser');      
+    if (!user.id || !token) {
+      navigate('/invalidUser');
     }
   }, [token]);
-
 
   useEffect(() => {
     const getAllTweets = async () => {
       try {
         const data = await userAPI.allTweets();
-        const userTweets = data.filter(({ userId }: any) => userId === user.user.id);
+        const userTweets = data.filter(({ userId }: any) => userId === user.id);
         setTweet(userTweets);
       } catch (e: any) {
         console.log(e.message);

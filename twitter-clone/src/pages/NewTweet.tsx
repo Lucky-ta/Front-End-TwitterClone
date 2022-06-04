@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import userAPI from '../services/userAPI';
 import '../css/NewTweetPage.css';
 import { AuthContext } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 export default function NewTweet() {
   const user = JSON.parse(localStorage.getItem('user') || '');
@@ -23,10 +22,8 @@ export default function NewTweet() {
   };
 
   useEffect(() => {
-    if (token !== user.token) {
+    if (!user.id || !token) {
       navigate('/invalidUser');
-      console.log(user);
-      
     }
   }, [token]);
 

@@ -14,15 +14,12 @@ export default function Home() {
   const navigate = useNavigate();
   const [tweet, setTweet]: any = useState([]);
   const { reload, setAllTweets } = useContext(AuthContext);
-  
-  useEffect(() => {
-    if (token !== user.token) {
-      navigate('/invalidUser');
-      console.log(user);
-      
-    }
-  }, [token]);
 
+  useEffect(() => {
+    if (!user.id || !token) {
+      navigate('/invalidUser');
+    }
+  }, [token, user]);
 
   useEffect(() => {
     const getAllTweets = async () => {

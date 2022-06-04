@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import registerUser from '../services/registerUser';
-import { useNavigate } from 'react-router'
 
 export default function RegisterField() {
   const [email, setEmail] = useState('');
@@ -26,7 +26,7 @@ export default function RegisterField() {
       } else {
         setError('Cadastro feito com sucesso!');
         setIsRender(true);
-        navigate("/");
+        navigate('/');
       }
     } catch (e: any) {
       console.log(e.message);

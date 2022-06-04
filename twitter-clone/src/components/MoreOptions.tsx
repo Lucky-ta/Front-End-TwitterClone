@@ -4,20 +4,12 @@ import { AuthContext } from '../contexts/AuthContext';
 import '../css/MoreOptions.css';
 import userAPI from '../services/userAPI';
 
-export default function MoreOptions({ tweetId, tweet }: any) {
-  const token = localStorage.getItem('authToken') || '';
+export default function MoreOptions({ tweetId }: any) {
+  const token = localStorage.getItem('token') || '';
   const { reload, setReload } = useContext(AuthContext);
 
   const excludeTweet = async () => {
-    console.log('exclude tweet');
     await userAPI.deleteTweet(tweetId, token);
-    await setReload(!reload);
-  };
-
-  const editTweet = async () => {
-    console.log('edit tweet');
-    console.log(tweet);
-    userAPI.updateTweet(tweetId, tweet, token);
     await setReload(!reload);
   };
 
@@ -26,7 +18,7 @@ export default function MoreOptions({ tweetId, tweet }: any) {
       <div className="dropdown-container" tabIndex={-1}>
         <div className="three-dots" />
         <div className="dropdown">
-          <a onClick={excludeTweet} href="#">
+          <a onClick={excludeTweet}>
             <div>
               <BiTrash size="1em" />
               {' '}

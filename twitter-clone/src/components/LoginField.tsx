@@ -22,8 +22,8 @@ export default function LoginField() {
       setIsRender(true);
     } else {
       localStorage.setItem('token', result.token);
-      localStorage.setItem('user', JSON.stringify(result));
-      
+      localStorage.setItem('user', JSON.stringify(result.user));
+
       setIsRender(true);
       navigate('/home');
     }
@@ -65,8 +65,10 @@ export default function LoginField() {
           ) : 'Carregando...'}
         {error.length !== 0 && <span>{error}</span>}
       </form>
-    ) : <div>
-      <p>Entrando...</p>
-    </div>
+    ) : (
+      <div>
+        <p>Entrando...</p>
+      </div>
+    )
   );
 }
