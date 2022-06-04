@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { User } from '../types/User';
 import { AuthContext } from './AuthContext';
 import userAPI from '../services/userAPI';
 
 export function AuthProvider({ children }: any) {
-  const [user, setUser] = useState<User | null>(null);
   const [reload, setReload] = useState(false);
   const [allTweets, setAllTweets] = useState([]);
 
@@ -23,7 +21,6 @@ export function AuthProvider({ children }: any) {
   }, [userAPI]);
 
   const data = {
-    user,
     allTweets,
     setAllTweets,
     reload,
